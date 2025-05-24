@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getProducts, createProduct, updateProduct, deleteProduct } from '../services/api';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -13,6 +14,7 @@ export default function Products() {
     stock: '',
     image: '',
   });
+  const { theme } = useTheme();
 
   useEffect(() => {
     fetchProducts();
@@ -116,7 +118,7 @@ export default function Products() {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className={`mt-1 block w-full ${theme.input}`}
                 required
               />
             </div>
@@ -135,7 +137,7 @@ export default function Products() {
                 onChange={(e) =>
                   setFormData({ ...formData, price: e.target.value })
                 }
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className={`mt-1 block w-full ${theme.input}`}
                 required
               />
             </div>
@@ -153,7 +155,7 @@ export default function Products() {
                 onChange={(e) =>
                   setFormData({ ...formData, category: e.target.value })
                 }
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className={`mt-1 block w-full ${theme.input}`}
                 required
               >
                 <option value="">Select a category</option>
@@ -178,7 +180,7 @@ export default function Products() {
                 onChange={(e) =>
                   setFormData({ ...formData, stock: e.target.value })
                 }
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className={`mt-1 block w-full ${theme.input}`}
                 required
               />
             </div>
@@ -197,7 +199,7 @@ export default function Products() {
                   setFormData({ ...formData, description: e.target.value })
                 }
                 rows={3}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className={`mt-1 block w-full ${theme.input}`}
                 required
               />
             </div>
@@ -216,7 +218,7 @@ export default function Products() {
                 onChange={(e) =>
                   setFormData({ ...formData, image: e.target.value })
                 }
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className={`mt-1 block w-full ${theme.input}`}
               />
             </div>
           </div>
